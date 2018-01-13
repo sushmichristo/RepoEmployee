@@ -16,7 +16,7 @@ public class EmployeeService {
 	private EmployeeRepository employeeRepository;
 
 	public List<Employee> getAllEmployees() {
-		List<Employee> employees = new ArrayList<>();
+		final List<Employee> employees = new ArrayList<>();
 		 this.employeeRepository.findAll().forEach(employees::add);
 		 return employees;
 	}
@@ -25,12 +25,7 @@ public class EmployeeService {
 		return this.employeeRepository.findOne(id);
 	}
 	
-	public boolean addEmployee(Employee employee) {
-		this.employeeRepository.save(employee);
-		return true;
-	}
-
-	public void updateEmployee(int id, Employee employee) {
+	public void saveEmployee(Employee employee) {
 		this.employeeRepository.save(employee);
 	}
 
