@@ -27,7 +27,23 @@ public class Employee {
 		this.salary = salary;
 	}
 
+	
+	@Override
+	public int hashCode() {
+		return this.id;
+	}
 
+	
+	@Override
+	public boolean equals(Object obj) {
+		final Employee emp = (Employee) obj;
+		if(this.getName().equalsIgnoreCase(emp.getName()) && 
+				this.getDesignation().equalsIgnoreCase(emp.getDesignation())
+				&& this.getSalary() == emp.getSalary()) {
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * @return the id
